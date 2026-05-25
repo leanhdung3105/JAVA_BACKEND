@@ -1,313 +1,87 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
-  <title>Java Backend Roadmap - Lộ trình học Java Backend từ số 0</title>
+  <title>Java Backend Roadmap</title>
+  <meta name="description"
+    content="Lộ trình học Java Backend từ cơ bản đến nâng cao - Spring Boot, Database, Docker, Microservices">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Lộ trình học Java Backend chuyên nghiệp chi tiết từ cơ bản đến nâng cao: Java Core, OOP, Spring Boot, JPA, Security, Testing, Docker, Microservices, CI/CD.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  
-  <!-- Font chữ hiện đại từ Google Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap">
-  
-  <!-- CSS Theme gốc của Docsify -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  
-  <!-- CSS custom để tạo giao diện Premium tối giản và tinh tế -->
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover" />
+
+  <!-- Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" />
+
   <style>
     :root {
-      /* Bảng màu chính - Spring Green & Carbon Gray */
-      --theme-color: #3eaf7c;
-      --theme-color-hover: #2e8b5c;
-      --text-color: #2c3e50;
-      --text-light: #5c6e80;
-      --bg-color: #ffffff;
-      --sidebar-bg: #f8fafc;
-      --border-color: #e2e8f0;
-      --code-bg: #1e1e24;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --font-header: 'Outfit', var(--font-sans);
-      --font-mono: 'Fira Code', 'Courier New', Courier, monospace;
+      --theme-color: #f97316;
+      --sidebar-width: 280px;
+      --base-font-size: 16px;
     }
 
-    body {
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Tiêu đề */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-header);
-      font-weight: 700;
-      color: #1e293b;
-      margin-top: 1.8em;
-      margin-bottom: 0.6em;
-    }
-
-    h1 { font-size: 2.25rem; font-weight: 800; border-bottom: none; margin-top: 0.5em; }
-    h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.3em; }
-    h3 { font-size: 1.35rem; }
-
-    /* Custom Sidebar */
-    .sidebar {
-      background-color: var(--sidebar-bg);
-      border-right: 1px solid var(--border-color);
-      padding-top: 20px;
-    }
-
-    .sidebar-nav {
-      padding-left: 20px;
-      padding-right: 15px;
-    }
-
-    .sidebar-nav strong {
-      display: block;
-      font-family: var(--font-header);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #94a3b8;
-      margin-top: 25px;
-      margin-bottom: 8px;
-    }
-
-    .sidebar ul li a {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #475569;
-      border-radius: 6px;
-      padding: 6px 12px;
-      margin: 2px 0;
-      transition: all 0.2s ease;
-    }
-
-    .sidebar ul li a:hover {
-      color: var(--theme-color);
-      background-color: #f1f5f9;
-      text-decoration: none;
-    }
-
-    .sidebar ul li.active > a {
-      color: #ffffff !important;
-      background-color: var(--theme-color);
-      font-weight: 600;
-      box-shadow: 0 4px 6px -1px rgba(62, 175, 124, 0.2), 0 2px 4px -2px rgba(62, 175, 124, 0.1);
-    }
-
-    /* Nội dung bài viết */
-    .markdown-section {
-      max-width: 850px;
-      padding: 30px 45px 50px 45px;
-    }
-
-    .markdown-section a {
-      color: var(--theme-color);
-      font-weight: 500;
-      text-decoration: none;
-      border-bottom: 1px dashed var(--theme-color);
-      transition: border-bottom 0.2s;
-    }
-
-    .markdown-section a:hover {
-      color: var(--theme-color-hover);
-      border-bottom: 1px solid var(--theme-color-hover);
-    }
-
-    /* Khối trích dẫn lý thuyết (WHAT, WHY, HOW, WHEN/WHERE) */
-    .markdown-section blockquote {
-      border-left: 4px solid var(--theme-color);
-      background-color: #f0fdf4;
-      color: #166534;
-      padding: 12px 20px;
-      border-radius: 0 8px 8px 0;
-      margin: 1.5em 0;
-      font-size: 0.98rem;
-    }
-
-    .markdown-section blockquote p {
-      margin: 0.4em 0;
-    }
-
-    /* Code Blocks */
-    .markdown-section pre {
-      background-color: var(--code-bg);
-      border-radius: 8px;
-      border: 1px solid #2d2d34;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-      padding: 15px 18px;
-      margin: 1.5em 0;
-    }
-
-    .markdown-section code {
-      font-family: var(--font-mono);
-      font-size: 0.92rem;
-      background-color: #f1f5f9;
-      color: #0f172a;
-      padding: 3px 6px;
-      border-radius: 4px;
-    }
-
-    .markdown-section pre code {
-      background-color: transparent;
-      color: #f8f8f2;
-      padding: 0;
-      font-size: 0.9rem;
-    }
-
-    /* Bảng dữ liệu */
-    .markdown-section table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5em 0;
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-    }
-
-    .markdown-section th {
-      background-color: #f8fafc;
-      font-family: var(--font-header);
-      font-weight: 600;
-      color: #334155;
-      border-bottom: 2px solid var(--border-color);
-      padding: 12px 15px;
-    }
-
-    .markdown-section td {
-      border-bottom: 1px solid var(--border-color);
-      padding: 12px 15px;
-      color: #475569;
-    }
-
-    .markdown-section tr:last-child td {
-      border-bottom: none;
-    }
-
-    .markdown-section tr:hover td {
-      background-color: #f8fafc;
-    }
-
-    /* Ô tìm kiếm Search */
-    .search {
-      margin-bottom: 15px;
-      padding: 0 15px;
-    }
-
-    .search input {
-      font-family: var(--font-sans);
-      border: 1px solid #cbd5e1 !important;
-      border-radius: 6px !important;
-      padding: 8px 12px 8px 30px !important;
-      background-color: #ffffff !important;
-      color: var(--text-color) !important;
-      font-size: 0.9rem !important;
-      transition: all 0.2s;
-    }
-
-    .search input:focus {
-      border-color: var(--theme-color) !important;
-      box-shadow: 0 0 0 3px rgba(62, 175, 124, 0.15) !important;
-    }
-
-    /* Nút copy code hover */
-    .docsify-copy-code-button {
-      background: rgba(255, 255, 255, 0.15) !important;
-      color: #ffffff !important;
-      border-radius: 4px !important;
-      font-family: var(--font-sans) !important;
-      font-size: 0.8rem !important;
-      padding: 4px 8px !important;
-    }
-
-    .docsify-copy-code-button:hover {
-      background: var(--theme-color) !important;
-    }
-
-    /* Phân trang Pagination */
-    .docsify-pagination-container {
-      border-top: 1px solid var(--border-color) !important;
-      margin-top: 3em !important;
-      padding-top: 1.5em !important;
-    }
-
-    .pagination-item-title {
-      font-family: var(--font-header) !important;
-      color: var(--theme-color) !important;
-      font-weight: 600 !important;
-    }
-
-    /* Đèn pin trang chủ */
-    .markdown-section p.tip {
-      border-left-color: var(--theme-color) !important;
-    }
-
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f5f9;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
+    .cover-main h1 {
+      font-size: 3rem;
+      background: linear-gradient(135deg, #f97316, #facc15);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 </head>
+
 <body>
-  <div id="app">Đang tải tài liệu lộ trình học...</div>
-  
+  <div id="app"></div>
+
   <script>
     window.$docsify = {
-      name: 'Java Backend Roadmap',
+      name: '☕ Java Backend Roadmap',
       repo: '',
       loadSidebar: true,
-      subMaxLevel: 2, // Hiển thị tự động menu con của file md tới cấp h3
-      auto2top: true, // Tự động cuộn lên đầu trang khi chuyển chương
-      
-      // Cấu hình plugin tìm kiếm Search
+      loadNavbar: true,
+      coverpage: true,
+      onlyCover: false,
+      auto2top: true,
+      maxLevel: 4,
+      subMaxLevel: 3,
+      homepage: '00.README.md',
       search: {
-        maxAge: 86400000, // Cache dữ liệu tìm kiếm 1 ngày (ms)
+        maxAge: 86400000,
         paths: 'auto',
-        placeholder: 'Tìm kiếm khái niệm, code...',
-        noData: 'Không tìm thấy kết quả!',
-        depth: 4 // Quét tiêu đề đến cấp 4 để index tìm kiếm
+        placeholder: '🔍 Tìm kiếm tài liệu...',
+        noData: 'Không tìm thấy kết quả',
+        depth: 6,
+        hideOtherSidebarContent: false,
       },
-
-      // Cấu hình phân trang Pagination
+      formatUpdated: '{DD}/{MM}/{YYYY} {HH}:{mm}',
+      copyCode: {
+        buttonText: 'Sao chép',
+        errorText: 'Lỗi',
+        successText: 'Đã sao chép!'
+      },
       pagination: {
-        previousText: 'Chương trước',
-        nextText: 'Chương tiếp theo',
+        previousText: '◀ Trang trước',
+        nextText: 'Trang tiếp ▶',
         crossChapter: true,
-        crossChapterText: true
-      }
-    }
+        crossChapterText: true,
+      },
+    };
   </script>
 
-  <!-- Các Scripts cốt lõi của Docsify -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-  
-  <!-- Plugins tiện ích -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- Docsify core -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
 
-  <!-- Cú pháp tô màu code của PrismJS (Java, Bash, SQL, YAML) -->
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-nginx.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-docker.min.js"></script>
+  <!-- Plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+  <!-- Syntax highlighting -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-docker.min.js"></script>
 </body>
+
 </html>
